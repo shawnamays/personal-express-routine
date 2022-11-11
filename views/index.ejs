@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Routine</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body>
+  <% let daysOfWeek = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] %>
+
+  <h2>Don't Go Into Your Days Like An Accident!</h2>
+  <p></p>
+
+
+
+  <h2>Enter a Task</h2>
+
+  <!--this is the form that uses the post method to create something from our task input-->
+
+  
+  <form action="/messages" method="POST">
+
+    <% for(var i=0; i<daysOfWeek.length; i++) {%>
+      <h3>daysOfWeek[i]</h3>
+        <% if (messages[i].daysOfWeek === daysOfWeek[i]){
+         <li class="" 
+
+        }
+     
+
+    <% } %>
+    <input type="text" placeholder="enter a task" name="task">
+
+    <fieldset>
+      <legend>What day of the week do you want to choose for this task?</legend>
+      <label><input type="checkbox" name="day" value="monday" />Monday</label>
+      <label><input type="checkbox" name="day" value="tuesday" />Tuesday</label>
+      <label><input type="checkbox" name="day" value="wednesday" />Wednesday</label>
+      <label><input type="checkbox" name="day" value="thursday" />Thursday</label>
+      <label><input type="checkbox" name="day" value="friday" />Friday</label>
+      <label><input type="checkbox" name="day" value="saturday" />Saturday</label>
+      <label><input type="checkbox" name="day" value="sunday" />Sunday</label>
+    
+    </fieldset>
+
+    <button type="submit">Add My Task</button>
+
+  </form>
+
+
+
+
+  <!--this is where the dropdown day picker goes so the user can select a day
+  that they want to add the task to -->
+  <ul class="messages">
+
+    <% for(var i=0; i<messages.length; i++) {%>
+
+      <li class="message">
+        <span><%= messages[i].task %></span>
+        <span><%= messages[i].day %></span>
+        <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+      </li>
+
+    <% } %>
+  </ul>
+
+  <h2></h2>
+
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
